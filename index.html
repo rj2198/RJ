@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    /* Example CSS styling for the menu */
+    .menu {
+      padding: 40px 80px 40px 80px;
+      display: flex;
+    }
+
+    .sidebar {
+      flex-basis: 25%;
+      background-color: #f2f2f2;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sidebar img {
+      width: 250px;
+      height: 250px;
+      margin-bottom: 20px;
+      object-fit: cover;
+    }
+
+    .content {
+      flex-basis: 75%;
+      padding: 10px;
+    }
+
+    .section {
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .heading {
+      padding: 3px;
+
+    }
+
+    .body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .menu-item {
+      margin-left: 20px;
+    }
+
+    .content-section {
+      display: none;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const sectionTitles = document.querySelectorAll('.section-title');
+      const contentSections = document.querySelectorAll('.content-section');
+
+      sectionTitles.forEach(function (title, index) {
+        title.addEventListener('click', function () {
+          // Remove 'active' class from all sections
+          contentSections.forEach(function (section) {
+            section.classList.remove('active');
+          });
+
+          // Add 'active' class to the clicked section
+          contentSections[index].classList.add('active');
+        });
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="menu">
+    <div class="sidebar">
+      <img src="img/RJ.png" alt="Your Photo">
+      <section class="section">
+        <h3 class="section-title">HOME</h3>
+      </section>
+      <section class="section">
+        <h3 class="section-title">EDUCATION</h3>
+      </section>
+      <section class="section">
+        <h3 class="section-title">EXPERIENCE</h3>
+      </section>
+      <section class="section">
+        <h3 class="section-title">SKILLS</h3>
+      </section>
+    </div>
+    <div class="content">
+      <div class="content-section active">
+        <h2 class="heading">HOME</h2>
+        <p class="body">Content for the Home section goes here.</p>
+      </div>
+      <div class="content-section">
+        <h2 class="heading">EDUCATION</h2>
+        <p class="body">Content for the Education section goes here.</p>
+      </div>
+      <div class="content-section">
+        <h2 class="heading">EXPERIENCE</h2>
+        <p class="body">Content for the Experience section goes here.</p>
+      </div>
+      <div class="content-section">
+        <h2 class="heading">SKILLS</h2>
+        <p class="body">Content for the Skills section goes here.</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
